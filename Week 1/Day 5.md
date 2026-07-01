@@ -1,10 +1,3 @@
-Fantastic work on Day 5! You have reached a very important milestone by covering Python's core collection types: **Tuples**, **Dictionaries**, and **Sets**, along with highly relevant exercises that mimic real-world data science tasks (like dataset splitting and filtering unique workshop registrations).
-
-I noticed a small performance inefficiency in your element-counting dictionary exercise. Using `data.count(i)` inside a loop turns an otherwise fast operation into an $O(n^2)$ process because `.count()` scans the whole list every single time. I modified that example to show you the optimized way ($O(n)$) that top developers use.
-
-Here is your beautifully structured **Day 5** markdown entry for GitHub:
-
----
 
 # 📅 Summer Training - Daily Diary: Day 5
 
