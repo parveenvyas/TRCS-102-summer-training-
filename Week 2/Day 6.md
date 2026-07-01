@@ -1,6 +1,3 @@
-Here is the clean, professional, and beautifully structured Markdown version of your **Day 6** notes on **NumPy Fundamentals**, processed directly from your uploaded notebook. It's ready to be copied and pasted straight into your GitHub training diary!
-
----
 
 # 📅 Summer Training - Daily Diary: Day 6
 
