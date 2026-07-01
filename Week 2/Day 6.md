@@ -90,7 +90,7 @@ print("Second column completely:", matrix[:, 1]) # [20, 50, 80]
 
 ```
 
-### 3.2 Boolean Indexing (Masking) 🌟
+### 3.2 Boolean Indexing (Masking) 
 
 Boolean masking evaluates logical conditions across entire arrays without structural loops. It produces a logical mask of `True`/`False` entries which is then applied to extract or alter target values.
 
@@ -111,7 +111,7 @@ print("Modified Scores (Baseline 50):", scores) # [50, 65, 50, 85, 92, 50]
 
 ---
 
-## 4. Slicing: Memory Views vs. Copies ⚠️
+## 4. Slicing: Memory Views vs. Copies 
 
 Slicing pulls out segments of an array using the `[start:stop:step]` syntax.
 
