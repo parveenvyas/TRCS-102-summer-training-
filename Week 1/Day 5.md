@@ -1,11 +1,12 @@
 
 # 📅 Summer Training - Daily Diary: Day 5
+## Data Structures
 
-## 1. Tuples
+## 2. Tuples
 
 A tuple is an ordered, **immutable** collection type in Python. Once created, its elements cannot be altered, added, or removed.
 
-### 1.1 Tuple Unpacking
+### 2.1 Tuple Unpacking
 
 Unpacking allows you to extract elements of a tuple directly into individual variables.
 
@@ -17,7 +18,7 @@ print(f"Calculated value (l * b + h): {l * b + h}")
 
 ```
 
-### 1.2 Wildcard Unpacking (`*`)
+### 2.2 Wildcard Unpacking (`*`)
 
 When you don't know the exact length or only want to isolate specific values, the `*` operator aggregates remaining elements into a list.
 
@@ -33,7 +34,7 @@ print("Course:", course)
 
 ```
 
-### 1.3 Practical ML Layout: Multi-Level Tuple Unpacking
+### 2.3 Practical ML Layout: Multi-Level Tuple Unpacking
 
 Tuples are frequently used to hold data matrix splits in Machine Learning validation pipelines.
 
@@ -58,7 +59,7 @@ print(f"Test samples count: {len(x_test)}")
 
 ```
 
-### 1.4 Bypassing Immutability (Type Conversion)
+### 2.4 Bypassing Immutability (Type Conversion)
 
 Since tuples cannot be changed directly, you must convert them to a list to modify them, then convert them back.
 
@@ -76,7 +77,7 @@ print("Modified Tuple:", tuple1)
 
 ---
 
-## 2. Dictionaries
+## 3. Dictionaries
 
 Dictionaries store data in unordered, mutable **Key-Value** pairs. They provide highly optimized search speeds based on keys.
 
@@ -107,10 +108,6 @@ print("Updated Student Dict:", student)
 
 ### 💡 Algorithmic Optimization: Frequency Counter
 
-Building a frequency counter map using a dictionary.
-
-> ⚡ **Efficiency Tip:** Instead of using `data.count(i)` which runs slowly by re-scanning the list on every loop iteration, we can safely increment the dictionary dynamically to process everything in a single, fast pass.
-
 ```python
 data = [100, 300, 200, 300, 400]
 count = {}
@@ -127,7 +124,7 @@ print("Frequency Counter Output:", count)
 
 ---
 
-## 3. Sets
+## 4. Sets
 
 Sets are unordered collections of **unique** elements. They automatically discard duplicate values and excel at mathematical group comparisons.
 
@@ -139,7 +136,7 @@ print("Unique Set Elements:", set1)
 
 ```
 
-### 3.1 Set Operators & Methods
+### 4.1 Set Operators & Methods
 
 ```python
 train_classes = {"cat", "dog", "sheep"}
@@ -161,9 +158,9 @@ print("SYMMETRIC DIFFERENCE:", train_classes ^ val_classes)
 
 ---
 
-## 4. Practical Programming Exercises
+## 5. Practical Programming Exercises
 
-### Exercise 4.1: Machine Learning Dataset Label Validation
+### Exercise 5.1: Machine Learning Dataset Label Validation
 
 ```python
 train_labels = ["tumor", "healthy", "healthy", "tumor", "cyst", "tumor"]
@@ -182,7 +179,7 @@ print("All Unique Dataset System Labels:", train_set | test_set)
 
 ```
 
-### Exercise 4.2: Weather Array Temperature Filter
+### Exercise 5.2: Weather Array Temperature Filter
 
 ```python
 temp = [28, 32, 18, 15, 30, 22, 17]
@@ -200,7 +197,7 @@ print("Hot Days (>=20°C):", hot_days)
 
 ```
 
-### Exercise 4.3: Student Information Unpacker
+### Exercise 5.3: Student Information Unpacker
 
 ```python
 student_record = ("S105", "Ananya", 20, "AI/ML")
@@ -210,7 +207,7 @@ print(f"Student {name} (ID: {student_id}) is {age} years old and is enrolled in 
 
 ```
 
-### Exercise 4.4: Book Inventory Tracker
+### Exercise 5.4: Book Inventory Tracker
 
 ```python
 inventory = {"Python Guide": 12, "Maths for ML": 5, "AI basics": 8}
@@ -230,7 +227,7 @@ print("Final Book Inventory:", inventory)
 
 ```
 
-### Exercise 4.5: Cross-Workshop Student Registration Tracker
+### Exercise 5.5: Cross-Workshop Student Registration Tracker
 
 ```python
 python_workshop = ["dev@email.com", "raj@email.com", "amit@email.com", "dev@email.com"]
