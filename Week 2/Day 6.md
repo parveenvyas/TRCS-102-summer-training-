@@ -134,9 +134,8 @@ print("Original Array (Protected & Unchanged):", original) # [10, 20, 30, 40, 50
 
 ---
 
-## 5. Broadcasting & Vectorization
 
-### 5.1 Broadcasting Rules
+## 5. Broadcasting
 
 **Broadcasting** allows arithmetic math operations to be performed between arrays of completely different shapes. NumPy virtually "stretches" the smaller array across the larger one to make their dimensions compatible.
 
@@ -161,27 +160,117 @@ print("Broadcast Result:\n", result)
 
 ```
 
-### 5.2 Vectorization Efficiency
+## 6. Vectorization
 
 Vectorization replaces native Python loops with highly optimized element-wise computations run close to CPU hardware speed.
 
 ```python
-# Squaring 1,000,000 numbers performance test
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+print("Addition a + b:      ", a + b)
+print("Subtraction b - a:   ", b - a)
+print("Multiplication a * b:", a * b)
+print("Division b / a:      ", b / a)
+print("Exponentiation a**2: ", a ** 2)
+
+```
+#### Loop vs Vectorization
+
+Let's write a loop to square 1,000,000 numbers vs doing it via NumPy vectorization.
+
+```python
 numbers = np.arange(1000000)
 
-# Loop implementation: ~50-100ms depending on environment
-# %timeit [x ** 2 for x in numbers]
+print("Loop implementation time:")
+%timeit [x ** 2 for x in numbers]
 
-# Vectorized implementation: ~1-2ms (Massively faster!)
-# %timeit numbers ** 2
+print("\nVectorized implementation time:")
+%timeit numbers ** 2
+```
+---
+
+
+## 7. Data cleaning using numpy
+Used:
+
+Boolean masks
+np.where()
+
+Applications:
+- Replacing negative salaries
+- Fixing invalid ages
+- Handling outliers
+
+```python
+import numpy as np
+age=np.array([10,-25,67,120,-35,200])
+fixed=np.where(age<0,-age,age)
+agefinal=np.where(fixed>100,100,fixed)
+print(agefinal)
+```
+
+## 8. Statistical Functions
+Studied:
+
+np.mean()
+np.median()
+np.std()
+Example Program: Statistical Functions
+
+```python
+import numpy as np
+
+data = np.array([10,20,30,40,50])
+
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+print("Standard Deviation:", np.std(data))
 
 ```
 
----
+## 9. Reshaping Arrays
+Learned:
 
-## 6. Practical Programming Exercises (Self-Solved)
+reshape()
+flatten()
+Example Program: Reshaping Arrays
 
-### Exercise 6.1: Celsius to Fahrenheit Vectorized Converter
+```python
+flat_arr = np.arange(6)
+print("Original 1D array:", flat_arr)
+# Reshape to a 2D matrix of 2 rows and 3 columns
+matrix_2d = flat_arr.reshape(2, 3)
+print(matrix_2d)
+print("\nReshaped to 2x3 Matrix:\n", matrix_2d)
+
+# Flatten it back to 1D
+flattened = matrix_2d.flatten()
+print(flattened)
+print("\nFlattened array back to 1D:", flattened)
+```
+
+## 10. Matrix Multiplication
+Performed matrix multiplication using:
+- np.dot()
+- @ operator
+
+```python
+inputs = np.array([1.0, 2.0]) 
+weights = np.array([
+    [0.2, 0.8, -0.5],
+    [0.5, -0.1, 0.4]
+])
+print(np.dot(inputs, weights))
+
+# Compute neural output: inputs dot weights
+outputs = np.dot(inputs, weights) 
+print("Neural Layer Outputs:", outputs)
+```
+
+## 11. Practical Programming Exercises (Self-Solved)
+
+### Exercise 11.1: Celsius to Fahrenheit Vectorized Converter
 
 ```python
 celsius = np.array([0, 10, 20, 30, 40])
@@ -190,7 +279,7 @@ print("Fahrenheit Equivalents:", fahrenheit)
 
 ```
 
-### Exercise 6.2: Salary Filtering and Baseline Adjustments
+### Exercise 11.2: Salary Filtering and Baseline Adjustments
 
 ```python
 emp_sal = np.array([45000, 78000, 120000, 32000, 95000, 50000])
@@ -205,7 +294,7 @@ print("Adjusted Salary Roll:", emp_sal)
 
 ```
 
-### Exercise 6.3: Multi-Dimensional Slicing Matrix Challenge
+### Exercise 11.3: Multi-Dimensional Slicing Matrix Challenge
 
 ```python
 matrix = np.array([
@@ -226,7 +315,7 @@ print("Partial Last Column:", matrix[0:2, -1])
 
 ```
 
-### Exercise 6.4: Safe View Protection Validation
+### Exercise 11.4: Safe View Protection Validation
 
 ```python
 array = np.array([1, 2, 3, 4, 5])
@@ -237,4 +326,48 @@ print("Modified Copy:", safe_copy) # [2, 4, 6]
 print("Original Array (Verified Unchanged):", array) # [1, 2, 3, 4, 5]
 
 ```
+
+### Exercise 11.5: Temperature Conversion
+```python
+celsius_list = [0, 10, 25, 36.6, 40]
+celsius=np.array(celsius_list)
+Fahrenheit=(celsius*(9/5))+32
+print(Fahrenheit)
+```
+### Exercise 11.6: Features and label Splits
+
+```python
+student_data = np.array([
+    [90, 18, 25, 85],
+    [75, 14, 15, 62],
+    [95, 19, 30, 92],
+    [60, 10,  8, 45]])
+
+X=student_data[:,0:3]
+print(X)
+Y=student_data[:,3]
+print(Y)
+```
+
+### Exercise 11.7: FIlter and replace outliers
+```python
+import numpy as np
+age = np.array([25, -1, 47, 999, 18, 31, -5, 62])
+new=np.where((age<0) | (age>120) , 30 , age)
+print(new)
+```
+
+### Exercise 11.8 : Data Normalization
+```python
+X = np.array([
+    [10.0, 100.0],
+    [20.0, 150.0],
+    [30.0, 200.0]
+])
+mean=np.mean(X,axis=0)
+std=np.std(X,axis=0)
+normal = (X-mean)/std
+print(normal)
+```
+
 ---
