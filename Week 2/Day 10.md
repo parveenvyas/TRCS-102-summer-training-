@@ -65,5 +65,89 @@ print("\nPositional Slice (.iloc):\n", clean_house_df.iloc[0:3, 0:6])
 
 ```
 
+Here is the clean, professional, and structured Markdown entry for **Days 10, 11, and 12** based on your Matplotlib and Seaborn visualization notebook.
+
+You can copy and paste each day's entry into your GitHub training diary repo!
+
+---
+
+## 3. Introduction to Data Visualization
+
+Today, we transitioned to visual data analysis using **Matplotlib** and **Seaborn**. Data visualization allows us to identify trends, distributions, outliers, and feature correlations much faster than raw numbers.
+
+```python
+import matplotlib.pyplot as plt 
+import seaborn as sns
+import numpy as np
+import pandas as pd
+
+```
+
+---
+
+## 4. Line Charts (Trend Tracking)
+
+Line charts are best used for continuous numerical values to track changes or trends over a sequence (e.g., time).
+
+```python
+# Sample Data: Speed over days
+days = [1, 2, 3, 4, 5]
+speed = [10, 25, 45, 70, 95]
+
+plt.figure(figsize=(7, 4))
+plt.plot(days, speed, color="red", marker='*', linestyle='--', linewidth=2, label='speed')
+
+# Chart annotations
+plt.title("Speed over Days")
+plt.xlabel("Time (Days)")
+plt.ylabel("Speed (km/h)")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+```
+
+---
+
+## 5. Bar Plots (Categorical Comparisons)
+
+Bar plots excel at comparing discrete categorical groups.
+
+```python
+treats = ['Chocolates', 'Gummy Bears', 'Cookies', 'Ice Cream']
+count = [15, 8, 22, 12]
+
+plt.figure(figsize=(7, 4))
+plt.bar(treats, count, color='skyblue', edgecolor='yellow')
+
+plt.title("Treats Eaten by Friends This Week", fontsize=12)
+plt.xlabel("Types of Treats", fontsize=12)
+plt.ylabel("Total Eaten Count", fontsize=12)
+plt.show()
+
+```
+
+---
+
+## 6. Scatter Plots (Relationship & Pattern Analysis)
+
+Scatter plots display individual data points across two continuous axes to uncover relationships or spatial distributions.
+
+```python
+east_coords = [2, 4, 1, 5, 3, 2.5, 4.5, 1.5]
+north_coords = [3, 1, 4, 2, 5, 3.5, 1.5, 4.2]
+
+plt.figure(figsize=(7, 4))
+plt.scatter(east_coords, north_coords, color="gold", marker='o', s=100, edgecolor='darkgoldenrod')
+
+plt.title("Treasure Chest Locations on Map", fontsize=14, color='orange')
+plt.xlabel("East-West Coordinates")
+plt.ylabel("North-South Coordinates")
+plt.grid(True)
+plt.show()
+
+```
+
+
 ---
 
