@@ -80,4 +80,4 @@ df_final.to_csv('kc_house_preprocessed.csv', index=False)
  1. **Outlier Capping:** Using the IQR clipping method protects models from being distorted by extreme values while retaining dataset size.
  2. **Feature Scaling:** Normalizing and standardizing variables ensures equal footing for multi-variable regression and machine learning algorithms.
  3. **One-Hot Encoding:** Translating text categories into binary indicator columns makes categorical data readable by mathematical models.
-A single relevant follow-up question to guide our progress: Would you like to start building a baseline Linear Regression model using this preprocessed dataset on Day 14?
+
