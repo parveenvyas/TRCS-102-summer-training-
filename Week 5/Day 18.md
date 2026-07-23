@@ -1,4 +1,4 @@
-# 📅 Summer Training - Daily Diary: Day 17
+# 📅 Summer Training - Daily Diary: Day 18
 
 ## 1. Interpreting the Customer Segments 📊
 Based on the clusters, we can segment retail marketing strategies:
