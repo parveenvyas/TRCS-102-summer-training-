@@ -1,9 +1,17 @@
-# 📅 Summer Training Diary – Day 19
+# Summer Training Diary – Day 19
 
 
 # 📚 Topics Covered
+## 1. Healthcare Analysis Project
+Continued working on the Healthcare Analysis project.
 
-## 1. Introduction to OpenCV
+The project focuses on:
+- Applying Machine Learning techniques to healthcare data.
+- Understanding image-based data processing.
+- Learning Computer Vision fundamentals.
+- Preparing image datasets for prediction models.
+
+## 2. Introduction to OpenCV
 
 OpenCV (Open Source Computer Vision Library) is an open-source library developed for computer vision and image processing. It provides a large collection of functions that help in reading, processing, analyzing, and displaying images and videos.
 
@@ -18,7 +26,7 @@ OpenCV (Open Source Computer Vision Library) is an open-source library developed
 
 ---
 
-## 2. Installing OpenCV
+## 3. Installing OpenCV
 
 ### Code
 
@@ -36,7 +44,7 @@ Learned how to install external Python libraries using pip.
 
 ---
 
-## 3. Importing Required Libraries
+## 4. Importing Required Libraries
 
 ### Code
 
@@ -60,7 +68,7 @@ Different libraries are combined to perform image processing and machine learnin
 
 ---
 
-## 4. Loading the Dataset
+## 5. Loading the Dataset
 
 ### Code
 
@@ -84,7 +92,7 @@ A dataset is a collection of data used for training and testing machine learning
 
 ---
 
-## 5. Understanding Image Representation
+## 6. Understanding Image Representation
 
 ### Theory
 
@@ -104,7 +112,7 @@ Each value represents the brightness of that pixel.
 
 ---
 
-## 6. Pixel Intensity
+## 7. Pixel Intensity
 
 Pixel intensity determines how bright a pixel appears.
 
@@ -118,7 +126,7 @@ Understanding pixel values is the foundation of image processing.
 
 ---
 
-## 7. Display Dataset Information
+## 8. Display Dataset Information
 
 ### Code
 
@@ -147,7 +155,7 @@ Each handwritten digit is stored as an 8×8 matrix.
 
 ---
 
-## 8. Display Pixel Matrix
+## 9. Display Pixel Matrix
 
 ### Code
 
