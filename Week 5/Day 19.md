@@ -165,3 +165,16 @@ Prints all pixel values of one handwritten digit.
 Images are actually matrices containing numerical pixel values.
 
 ---
+# ✅ Learning Outcome
+
+By the end of Day 19, I learned:
+
+- Introduction to OpenCV
+- Installing and importing OpenCV
+- Understanding image datasets
+- Image representation using matrices
+- Pixel intensity
+- Loading handwritten digit datasets
+- Reading image information
+
+---
