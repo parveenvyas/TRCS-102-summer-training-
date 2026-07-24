@@ -1,4 +1,4 @@
-# 📅 Summer Training Diary – Day 21
+#  Summer Training Diary – Day 21
 
 
 # 📚 Topics Covered
