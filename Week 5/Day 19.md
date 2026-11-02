@@ -1,7 +1,5 @@
-# Summer Training Diary – Day 19
+#  Summer Training - Daily Diary: Day 19
 
-
-# 📚 Topics Covered
 ## 1. Healthcare Analysis Project
 Continued working on the Healthcare Analysis project.
 
