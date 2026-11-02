@@ -1,7 +1,4 @@
-#  Summer Training Diary – Day 21
-
-
-# 📚 Topics Covered
+#  Summer Training - Daily Diary: Day 21
 
 ## 1. Introduction to Customer Churn
 
