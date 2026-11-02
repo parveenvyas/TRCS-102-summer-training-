@@ -1,9 +1,6 @@
 
 
-# Summer Training Diary – Day 20
-
-
-# 📚 Topics Covered
+#  Summer Training - Daily Diary: Day 18
 
 ## 1. BGR vs RGB
 
