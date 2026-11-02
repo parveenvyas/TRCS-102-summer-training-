@@ -1,315 +1,430 @@
-# 📅 Summer Training - Daily Diary: Day 23
+# Summer Training Daily Dairy: Day 23 
 
-# 📚 Topics Covered
+### 1. Introduction to Natural Language Processing (NLP)
 
-## 1. Introduction to Natural Language Processing (NLP)
+Natural Language Processing (NLP) is a branch of Artificial Intelligence that enables computers to understand, process, and analyze human language.
 
-Natural Language Processing (NLP) is a branch of Artificial Intelligence (AI) that enables computers to understand, analyze, process, and generate human language.
+Applications:
 
-### Applications of NLP
-
-- Email Spam Detection
-- Sentiment Analysis
+- Spam Detection
 - Chatbots
+- Sentiment Analysis
 - Machine Translation
-- Text Summarization
-- Search Engines
-- Voice Assistants
+- Text Classification
 
----
-
-## 2. Installing NLTK
-
-### Code
+<details>
+<summary><strong>Program 1: Importing Required Libraries</strong></summary>
 
 ```python
-%pip install nltk
-```
-
-### Explanation
-
-Installs the **Natural Language Toolkit (NLTK)** library, which provides tools for text processing.
-
-### Learning
-
-Learned how to install an NLP library in Python.
-
----
-
-## 3. Importing Required Libraries
-
-### Code
-
-```python
-import nltk
-import pandas as pd
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import (
+    accuracy_score,
+    confusion_matrix,
+    classification_report,
+    ConfusionMatrixDisplay
+)
 ```
 
-### Explanation
-
-- **NLTK** → Text processing
-- **Pandas** → Data handling
-- **NumPy** → Numerical operations
-- **Matplotlib & Seaborn** → Visualization
-
-### Learning
-
-Different libraries work together to perform NLP and machine learning tasks.
+</details>
 
 ---
 
-## 4. Downloading NLTK Resources
+### 2. Text Preprocessing
 
-### Code
+Raw text contains unnecessary information that must be cleaned before training Machine Learning models.
+
+The preprocessing steps performed were:
+
+- Lowercasing
+- Tokenization
+- Removing Punctuation
+- Removing Stop Words
+- Stemming
+
+<details>
+<summary><strong>Program 2: Downloading NLTK Resources</strong></summary>
 
 ```python
+import os
+import string
+import warnings
+
+warnings.filterwarnings('ignore')
+
 nltk.download('stopwords')
 nltk.download('punkt')
+nltk.download('punkt_tab')
+
+print("All libraries loaded and NLTK resources downloaded successfully!")
 ```
 
-### Explanation
+</details>
 
-Downloads:
+<details>
+<summary><strong>Program 3: Demonstrating Text Preprocessing Steps</strong></summary>
 
-- Tokenizer
-- Stopword dictionary
+```python
+sample_text = "Hello World! We are learning text preprocessing today!"
 
-These resources are required for text preprocessing.
+print("Original Text:", sample_text)
+
+text_lower = sample_text.lower()
+
+tokens = word_tokenize(text_lower)
+
+tokens_no_punct = [
+    word for word in tokens
+    if word not in string.punctuation
+]
+
+stop_words = set(stopwords.words('english'))
+
+tokens_no_stopwords = [
+    word for word in tokens_no_punct
+    if word not in stop_words
+]
+
+stemmer = PorterStemmer()
+
+stemmed_tokens = [
+    stemmer.stem(word)
+    for word in tokens_no_stopwords
+]
+
+clean_sentence = " ".join(stemmed_tokens)
+
+print(clean_sentence)
+```
+
+</details>
+
+<details>
+<summary><strong>Program 6: Creating Text Preprocessing Function</strong></summary>
+
+```python
+def preprocess_text(text):
+
+    text = text.lower()
+
+    tokens = word_tokenize(text)
+
+    tokens = [
+        word
+        for word in tokens
+        if word not in string.punctuation
+    ]
+
+    stop_words = set(
+        stopwords.words('english')
+    )
+
+    tokens = [
+        word
+        for word in tokens
+        if word not in stop_words
+    ]
+
+    stemmer = PorterStemmer()
+
+    stemmed = [
+        stemmer.stem(word)
+        for word in tokens
+    ]
+
+    return " ".join(stemmed)
+```
+
+</details>
+
+<details>
+<summary><strong>Program 7: Cleaning SMS Messages</strong></summary>
+
+```python
+print(
+    "Cleaning all SMS messages..."
+)
+
+df['clean_text'] = df['text'].apply(
+    preprocess_text
+)
+
+print("Preprocessing complete!")
+
+print(df['clean_text'].head())
+```
+
+</details>
 
 ---
 
-# Text Preprocessing
+### 3. Lowercasing
 
-Text preprocessing converts raw text into a clean format suitable for machine learning.
-
----
-
-## 5. Lowercasing
-
-### Theory
-
-Converts all characters into lowercase.
+All text is converted into lowercase to ensure consistency.
 
 Example:
 
-```
-"Hello World"
-```
-
-↓
-
-```
-"hello world"
-```
-
-### Benefit
-
-Treats "Hello" and "hello" as the same word.
-
----
-
-## 6. Tokenization
-
-### Theory
-
-Tokenization splits a sentence into individual words.
-
-Example
-
-```
+```text
 Hello World
 ```
 
-↓
+becomes
 
+```text
+hello world
 ```
-["hello", "world"]
-```
-
-### Learning
-
-Machine learning models process tokens rather than complete sentences.
 
 ---
 
-## 7. Removing Punctuation
+### 4. Tokenization
 
-### Theory
+Tokenization breaks a sentence into individual words called tokens.
 
-Removes punctuation marks such as:
+Example:
 
+```text
+"I love AI"
 ```
-.,!?;:
-```
 
-This reduces unnecessary information.
+becomes
+
+```text
+["I", "love", "AI"]
+```
 
 ---
 
-## 8. Removing Stopwords
+### 5. Removing Punctuation
 
-### Theory
+Punctuation marks such as:
 
-Stopwords are very common words that usually do not carry important meaning.
+```text
+. , ! ? : ; ( )
+```
 
-Examples
+are removed because they usually do not contribute to text meaning.
+
+---
+
+### 6. Stop Word Removal
+
+Common words such as:
 
 - the
 - is
-- am
 - are
 - of
 - in
 
-Removing them improves model efficiency.
+are removed to reduce unnecessary information.
 
 ---
 
-## 9. Stemming
+### 7. Stemming
 
-### Theory
+Stemming converts words into their root form.
 
-Stemming converts words to their root form.
+Examples:
 
-Examples
+```text
+running → run
+playing → play
+studies → studi
+```
 
-- playing → play
-- running → run
-- studies → studi
-
-This reduces vocabulary size.
-
----
-
-## 10. Complete Text Preprocessing Pipeline
-
-### Code
+Used using:
 
 ```python
-def preprocess_text(text):
+PorterStemmer()
 ```
-
-### Explanation
-
-The preprocessing function performs:
-
-1. Lowercasing
-2. Tokenization
-3. Removing punctuation
-4. Removing stopwords
-5. Stemming
-
-### Learning
-
-Learned how raw text is transformed into clean text for machine learning.
 
 ---
 
-# Text Vectorization
+### 8. Text Vectorization
 
-Machine learning algorithms cannot understand text directly.
+Machine Learning algorithms cannot understand text directly.
 
-Therefore, text is converted into numerical vectors.
+Text must be converted into numerical vectors.
+
+Methods covered:
+
+- Bag of Words (Count Vectorizer)
+- TF-IDF Vectorizer
+
+<details>
+<summary><strong>Program 4: Bag of Words and TF-IDF Representation</strong></summary>
+
+```python
+toy_corpus = [
+    "The cat chased the mouse.",
+    "The dog chased the cat.",
+    "The bird sang in the tree."
+]
+
+count_vect = CountVectorizer()
+
+bow_matrix = count_vect.fit_transform(
+    toy_corpus
+)
+
+df_bow = pd.DataFrame(
+    bow_matrix.toarray(),
+    columns=count_vect.get_feature_names_out()
+)
+
+display(df_bow)
+
+tfidf_vect = TfidfVectorizer()
+
+tfidf_matrix = tfidf_vect.fit_transform(
+    toy_corpus
+)
+
+df_tfidf = pd.DataFrame(
+    tfidf_matrix.toarray(),
+    columns=tfidf_vect.get_feature_names_out()
+)
+
+display(df_tfidf.round(3))
+```
+
+</details>
 
 ---
 
-## 11. Bag of Words (BoW)
+### 9. Bag of Words (BoW)
 
-### Theory
+Bag of Words counts how many times each word appears in a document.
 
-Bag of Words counts the number of times each word appears in a document.
-
-Example
-
-Sentence 1:
-
-```
-The cat chased the mouse
-```
-
-Sentence 2:
-
-```
-The dog chased the cat
-```
-
-Each sentence is represented using word frequencies.
-
-### Advantages
-
-- Simple
-- Easy to implement
-
-### Limitation
-
-Does not consider word importance.
-
----
-
-## 12. TF-IDF
-
-### Theory
-
-TF-IDF (Term Frequency–Inverse Document Frequency) gives higher importance to unique words and lower importance to very common words.
-
-Advantages
-
-- Better than Bag of Words
-- Reduces the impact of common words
-
----
-
-## 13. Bag of Words Code
-
-### Code
+Used using:
 
 ```python
 CountVectorizer()
 ```
 
-### Explanation
-
-Creates numerical vectors using word counts.
-
-### Learning
-
-Converted text into machine-readable numerical features.
-
 ---
 
-## 14. TF-IDF Code
+### 10. TF-IDF
 
-### Code
+TF-IDF (Term Frequency-Inverse Document Frequency) gives higher importance to meaningful words while reducing the importance of very common words.
+
+Used using:
 
 ```python
 TfidfVectorizer()
 ```
 
-### Explanation
+---
 
-Creates weighted numerical vectors.
+### 11. SMS Spam Dataset
 
-### Learning
+The SMS Spam Collection dataset contains two classes:
 
-Learned an advanced text vectorization technique.
+- Ham (Normal Message)
+- Spam (Unwanted Message)
+
+The labels were converted into binary values:
+
+- Ham → 0
+- Spam → 1
+
+<details>
+<summary><strong>Program 5: Loading SMS Spam Dataset</strong></summary>
+
+```python
+df = pd.read_csv(
+    "spam.csv",
+    encoding="latin-1"
+)
+
+df = df[
+    ['v1','v2']
+].rename(
+    columns={
+        'v1':'label',
+        'v2':'text'
+    }
+)
+
+df['is_spam'] = df['label'].map({
+    'ham':0,
+    'spam':1
+})
+
+print(df.head())
+```
+
+</details>
 
 ---
 
+### 12. Train-Test Split
 
-# ✅ Learning Outcome
+The dataset was divided into:
 
-By the end of Day 23, I learned:
+- 80% Training Data
+- 20% Testing Data
 
-- Fundamentals of Natural Language Processing (NLP)
-- Text preprocessing pipeline
-- Lowercasing
-- Tokenization
-- Stopword removal
-- Punctuation removal
-- Stemming
-- Bag of Words
-- TF-IDF Vectorization
+The **stratify** parameter was used to maintain the same class distribution in both datasets.
 
+<details>
+<summary><strong>Program 8: Splitting Dataset and TF-IDF Vectorization</strong></summary>
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    df['clean_text'],
+    df['is_spam'],
+    test_size=0.20,
+    random_state=42,
+    stratify=df['is_spam']
+)
+
+tfidf = TfidfVectorizer(
+    max_features=2500
+)
+
+X_train_tfidf = tfidf.fit_transform(
+    X_train
+)
+
+X_test_tfidf = tfidf.transform(
+    X_test
+)
+
+print(
+    f"Train size: {X_train.shape[0]}"
+)
+
+print(
+    f"Test size: {X_test.shape[0]}"
+)
+```
+
+</details>
+
+---
+
+## Key Learnings
+
+- Learned the fundamentals of Natural Language Processing.
+- Performed complete text preprocessing.
+- Understood Lowercasing, Tokenization, Stop Word Removal, and Stemming.
+- Learned Bag of Words and TF-IDF feature extraction.
+- Loaded and explored the SMS Spam dataset.
+- Converted text into numerical vectors for Machine Learning.
+- Prepared the dataset for spam classification.
+
+## Conclusion
+
+Day 23 introduced Natural Language Processing (NLP) techniques used in Machine Learning. Raw text was cleaned using preprocessing techniques, transformed into numerical representations using Bag of Words and TF-IDF, and prepared for training an SMS Spam Detection model.
