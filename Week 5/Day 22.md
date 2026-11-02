@@ -1,8 +1,5 @@
 
-# 📅 Summer Training Diary – Day 22
-
-
-# 📚 Topics Covered
+# 📅 Summer Training - Daily Diary: Day 22
 
 ## 1. Train-Test Split
 
