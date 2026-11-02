@@ -1,6 +1,6 @@
 
 
-#  Summer Training - Daily Diary: Day 18
+#  Summer Training - Daily Diary: Day 20
 
 ## 1. BGR vs RGB
 
