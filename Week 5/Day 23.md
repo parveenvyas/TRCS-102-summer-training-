@@ -1,5 +1,4 @@
-# 📅 Summer Training Diary – Day 23
-
+# 📅 Summer Training - Daily Diary: Day 23
 
 # 📚 Topics Covered
 
